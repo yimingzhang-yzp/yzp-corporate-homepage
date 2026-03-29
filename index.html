@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YZ PARTNERS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- === NAVBAR === -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a href="#" class="navbar__logo">
+        <img src="IMG_6662.PNG" alt="YZ PARTNERS" class="navbar__logo-img">
+      </a>
+      <button class="navbar__toggle" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="navbar__nav">
+        <ul class="navbar__list">
+          <li><a href="#services">サービス</a></li>
+          <li><a href="#about">私たちについて</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- === HERO === -->
+  <section class="hero-section">
+    <div class="hero-section__inner">
+      <p class="hero-section__sub">誠実に、共に前へ。</p>
+      <h1 class="hero-section__title">パートナーとして、<br>あなたのビジネスを支える。</h1>
+      <a href="#contact" class="hero-section__cta">お問い合わせはこちら</a>
+    </div>
+  </section>
+
+  <!-- === SERVICES === -->
+  <section class="services-section" id="services">
+    <div class="services-section__inner">
+      <h2 class="section-title">サービス</h2>
+      <p class="section-lead">YZ PARTNERSは、お客様の課題に寄り添い、最適なソリューションを提供します。</p>
+      <ul class="services-section__list">
+        <li class="services-section__item">
+          <div class="services-section__icon">01</div>
+          <h3 class="services-section__name">経営コンサルティング</h3>
+          <p class="services-section__desc">戦略立案から実行支援まで、経営課題の解決をトータルにサポートします。</p>
+        </li>
+        <li class="services-section__item">
+          <div class="services-section__icon">02</div>
+          <h3 class="services-section__name">財務・税務アドバイザリー</h3>
+          <p class="services-section__desc">財務体質の強化や税務最適化を通じて、持続的な成長を支援します。</p>
+        </li>
+        <li class="services-section__item">
+          <div class="services-section__icon">03</div>
+          <h3 class="services-section__name">事業承継・M&amp;A支援</h3>
+          <p class="services-section__desc">円滑な事業承継とM&amp;Aプロセスを、豊富な経験でサポートします。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- === ABOUT === -->
+  <section class="about-section" id="about">
+    <div class="about-section__inner">
+      <h2 class="section-title">私たちについて</h2>
+      <p class="section-lead">YZ PARTNERSは、真のパートナーとしてお客様と共に歩むことを使命としています。</p>
+      <div class="about-section__content">
+        <div class="about-section__text">
+          <p>私たちは「誠実・専門性・信頼」を三つの柱として、中小企業から大手企業まで幅広いお客様のビジネス課題に向き合ってきました。</p>
+          <p>単なるアドバイザーではなく、共に考え、共に行動するパートナーとして、お客様の成長と発展を全力でサポートします。</p>
+        </div>
+        <dl class="about-section__profile">
+          <div class="about-section__profile-row">
+            <dt>社名</dt>
+            <dd>YZ PARTNERS</dd>
+          </div>
+          <div class="about-section__profile-row">
+            <dt>設立</dt>
+            <dd>2020年4月</dd>
+          </div>
+          <div class="about-section__profile-row">
+            <dt>所在地</dt>
+            <dd>東京都千代田区</dd>
+          </div>
+          <div class="about-section__profile-row">
+            <dt>事業内容</dt>
+            <dd>経営・財務・税務コンサルティング</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- === CONTACT === -->
+  <section class="contact-section" id="contact">
+    <div class="contact-section__inner">
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-lead">ご相談・ご質問は、以下のフォームよりお気軽にお送りください。</p>
+      <form class="contact-section__form" action="#" method="post" novalidate>
+        <div class="contact-section__field">
+          <label for="name">お名前 <span class="required">必須</span></label>
+          <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+        </div>
+        <div class="contact-section__field">
+          <label for="company">会社名</label>
+          <input type="text" id="company" name="company" placeholder="株式会社〇〇">
+        </div>
+        <div class="contact-section__field">
+          <label for="email">メールアドレス <span class="required">必須</span></label>
+          <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+        </div>
+        <div class="contact-section__field">
+          <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+          <textarea id="message" name="message" rows="6" placeholder="ご相談内容をご記入ください" required></textarea>
+        </div>
+        <button type="submit" class="contact-section__submit">送信する</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- === FOOTER === -->
+  <footer class="footer">
+    <p class="footer__copy">&copy; 2024 YZ PARTNERS. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
