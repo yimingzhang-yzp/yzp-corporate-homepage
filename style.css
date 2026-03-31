@@ -461,9 +461,9 @@ img {
 
 .services-section__icon {
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   color: var(--color-accent-hover);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -494,14 +494,28 @@ img {
   line-height: 1.85;
 }
 
+.services-section__note {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.04em;
+}
+
 @media (min-width: 768px) {
   .services-section {
     padding: 140px 48px;
   }
 
   .services-section__list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 32px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .services-section__list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
