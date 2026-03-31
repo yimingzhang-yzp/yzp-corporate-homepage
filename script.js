@@ -32,44 +32,122 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // === SCROLL ANIMATION ===
-  const animationTargets = document.querySelectorAll(
-    '.hero-section, .services-section, .about-section, .contact-section, [data-animate]'
-  );
-
+  // === SCROLL ANIMATION (Intersection Observer) ===
   if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(
+
+    // セクション見出し・リード：フェードイン
+    const sectionHeaders = document.querySelectorAll(
+      '.services-section .section-title, .services-section .section-lead,' +
+      '.results-section .section-title, .results-section .section-lead,' +
+      '.cases-section .section-title, .cases-section .section-lead,' +
+      '.about-section .section-title, .about-section .section-lead,' +
+      '.news-section .section-title, .news-section .section-lead,' +
+      '.contact-section .section-title, .contact-section .section-lead'
+    );
+
+    const headerObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+            headerObserver.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.2 }
     );
 
-    animationTargets.forEach((el) => {
+    sectionHeaders.forEach((el) => {
       el.classList.add('animate-on-scroll');
-      observer.observe(el);
+      headerObserver.observe(el);
     });
+
+    // サービスカード：リストが見えたら130ms 刻みでスタガーフェードイン
+    const servicesList = document.querySelector('.services-section__list');
+    if (servicesList) {
+      const cardObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.querySelectorAll('.services-section__item').forEach((card, i) => {
+                card.classList.add('animate-on-scroll');
+                setTimeout(() => card.classList.add('is-visible'), i * 130);
+              });
+              cardObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      cardObserver.observe(servicesList);
+    }
+
+    // About・Contact・Results・News のコンテンツブロック：フェードイン
+    const contentBlocks = document.querySelectorAll(
+      '.about-section__text, .about-section__profile,' +
+      '.results-section__stats,' +
+      '.cases-section__list,' +
+      '.news-section__list,' +
+      '.contact-section__form'
+    );
+
+    const contentObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            contentObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -32px 0px' }
+    );
+
+    contentBlocks.forEach((el, i) => {
+      el.classList.add('animate-on-scroll');
+      el.style.transitionDelay = `${i % 2 * 0.12}s`;
+      contentObserver.observe(el);
+    });
+
   } else {
-    // IntersectionObserver 非対応ブラウザはすべて表示
-    animationTargets.forEach((el) => el.classList.add('is-visible'));
+    // IntersectionObserver 非対応ブラウザはすべて即時表示
+    document.querySelectorAll(
+      '.services-section .section-title, .services-section .section-lead,' +
+      '.results-section .section-title, .results-section .section-lead,' +
+      '.cases-section .section-title, .cases-section .section-lead,' +
+      '.about-section .section-title, .about-section .section-lead,' +
+      '.news-section .section-title, .news-section .section-lead,' +
+      '.contact-section .section-title, .contact-section .section-lead,' +
+      '.services-section__item, .about-section__text,' +
+      '.about-section__profile, .results-section__stats,' +
+      '.cases-section__list, .news-section__list,' +
+      '.contact-section__form'
+    ).forEach((el) => el.classList.add('is-visible'));
   }
 
-  // スクロール中のナビバー背景切り替え
+
+  // === NAVBAR：スクロールで backdrop-filter ぼかし効果 ===
   const onScroll = () => {
     if (!navbar) return;
-    if (window.scrollY > 50) {
-      navbar.classList.add('is-scrolled');
-    } else {
-      navbar.classList.remove('is-scrolled');
-    }
+    navbar.classList.toggle('is-scrolled', window.scrollY > 60);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll(); // 初期状態を反映
+
+
+  // === PARALLAX（ヒーロー背景） ===
+  const heroBg = document.querySelector('.hero-section__bg');
+  if (heroBg) {
+    const heroHeight = window.innerHeight;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      // ヒーローが画面内にある間だけ実行
+      if (scrollY <= heroHeight) {
+        heroBg.style.transform = `translateY(${scrollY * 0.28}px)`;
+      }
+    }, { passive: true });
+  }
 
 
   // === FORM VALIDATION ===
