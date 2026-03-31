@@ -270,40 +270,30 @@ img {
   overflow: hidden;
 }
 
-/* グラデーションメッシュ背景 */
-.hero-section__bg {
+/* 背景動画 */
+.hero-section__video {
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(ellipse 85% 65% at 15% 55%, rgba(21, 92, 89, 0.55) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 75% at 88% 22%, rgba(21, 92, 89, 0.32) 0%, transparent 52%),
-    radial-gradient(ellipse 50% 45% at 58% 90%, rgba(21, 92, 89, 0.2) 0%, transparent 48%),
-    radial-gradient(ellipse 35% 35% at 42% 30%, rgba(21, 92, 89, 0.1) 0%, transparent 42%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   pointer-events: none;
   z-index: 0;
 }
 
-/* グリッドオーバーレイ */
-.hero-section::before {
-  content: '';
+/* 暗いオーバーレイ（テキスト可読性確保） */
+.hero-section__overlay {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 72px 72px;
+  background: rgba(0, 0, 0, 0.5);
   pointer-events: none;
-  z-index: 0;
-}
-
-.hero-section::after {
-  display: none;
+  z-index: 1;
 }
 
 .hero-section__inner {
   max-width: 900px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   animation: heroFadeUp 0.9s ease both;
 }
 
@@ -835,7 +825,7 @@ img {
   }
 
   .results-section__stats {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 2px;
   }
 
