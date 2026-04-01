@@ -631,7 +631,7 @@ img {
 /* 代表挨拶パネル：顔（上半身）を中央上部に表示 */
 .about-section__panels > a:nth-child(4).about-section__panel--bg-img {
   background-size: cover;
-  background-position: center top;
+  background-position: center 20%;
 }
 
 /* 動画背景パネル */
