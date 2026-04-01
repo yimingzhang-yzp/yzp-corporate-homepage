@@ -2,8 +2,8 @@
 :root {
   --color-main: #FFFFFF;
   --color-bg: #f0ede8;
-  --color-accent: #155C59;
-  --color-accent-hover: #1a7a76;
+  --color-accent: #00C896;
+  --color-accent-hover: #00DBA9;
   --color-bg-light: #f0ede8;
   --color-text: #0a0a0f;
   --color-text-muted: #6b6b72;
@@ -191,7 +191,7 @@ img {
 }
 
 .navbar__list li a:hover {
-  color: #00C896;
+  color: var(--color-accent);
   padding-left: 40px;
 }
 
@@ -230,12 +230,12 @@ img {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #00C896;
+    background-color: var(--color-accent);
     transition: width var(--transition);
   }
 
   .navbar__list li a:hover {
-    color: #00C896;
+    color: var(--color-accent);
     padding-left: 0;
   }
 
@@ -399,8 +399,8 @@ img {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 55% at 8% 50%, rgba(21, 92, 89, 0.22) 0%, transparent 55%),
-    radial-gradient(ellipse 45% 60% at 92% 30%, rgba(21, 92, 89, 0.14) 0%, transparent 50%);
+    radial-gradient(ellipse 60% 55% at 8% 50%, rgba(0, 200, 150, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 60% at 92% 30%, rgba(0, 200, 150, 0.14) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -462,10 +462,10 @@ img {
 
 .services-section__item:hover {
   background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(21, 92, 89, 0.5);
+  border-color: rgba(0, 200, 150, 0.5);
   transform: translateY(-10px);
   box-shadow:
-    0 0 0 1px rgba(21, 92, 89, 0.2),
+    0 0 0 1px rgba(0, 200, 150, 0.2),
     0 24px 60px rgba(0, 0, 0, 0.55);
 }
 
@@ -485,7 +485,7 @@ img {
   display: block;
   flex: 1;
   height: 1px;
-  background-color: rgba(21, 92, 89, 0.35);
+  background-color: rgba(0, 200, 150, 0.35);
   max-width: 48px;
 }
 
@@ -875,7 +875,7 @@ img {
 .contact-section__field input:focus,
 .contact-section__field textarea:focus {
   border-color: var(--color-accent-hover);
-  box-shadow: 0 0 0 3px rgba(26, 122, 118, 0.25);
+  box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.25);
 }
 
 .contact-section__field input.is-error,
@@ -912,8 +912,8 @@ img {
 .form-success {
   font-size: 0.9rem;
   color: var(--color-accent);
-  background-color: rgba(21, 92, 89, 0.08);
-  border: 1px solid rgba(21, 92, 89, 0.25);
+  background-color: rgba(0, 200, 150, 0.08);
+  border: 1px solid rgba(0, 200, 150, 0.25);
   padding: 14px 20px;
   border-radius: var(--radius);
   margin-top: 8px;
@@ -1090,7 +1090,7 @@ img {
 
 .cases-section__item:hover {
   background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(21, 92, 89, 0.45);
+  border-color: rgba(0, 200, 150, 0.45);
 }
 
 .cases-section__header {
@@ -1153,7 +1153,7 @@ img {
   align-items: baseline;
   gap: 16px;
   padding: 16px 20px;
-  background: rgba(21, 92, 89, 0.15);
+  background: rgba(0, 200, 150, 0.15);
   border-left: 3px solid var(--color-accent);
   border-radius: 0 var(--radius) var(--radius) 0;
 }
@@ -1839,8 +1839,8 @@ img {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 55% 60% at 5% 50%, rgba(21, 92, 89, 0.2) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 50% at 95% 20%, rgba(21, 92, 89, 0.12) 0%, transparent 50%);
+    radial-gradient(ellipse 55% 60% at 5% 50%, rgba(0, 200, 150, 0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 50% at 95% 20%, rgba(0, 200, 150, 0.12) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -1968,8 +1968,8 @@ img {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 55% at 8% 50%, rgba(21, 92, 89, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 45% 60% at 92% 30%, rgba(21, 92, 89, 0.1) 0%, transparent 50%);
+    radial-gradient(ellipse 60% 55% at 8% 50%, rgba(0, 200, 150, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 60% at 92% 30%, rgba(0, 200, 150, 0.1) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -2008,7 +2008,7 @@ img {
 
 .service-steps-section__item:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(21, 92, 89, 0.45);
+  border-color: rgba(0, 200, 150, 0.45);
 }
 
 .service-steps-section__num {
