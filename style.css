@@ -1415,35 +1415,50 @@ img {
   transform: translateX(4px);
 }
 
-/* 事例・ニュース 共通「もっと見る」ボタン */
+/* 事例・ニュース 共通「もっと見る」ボタン（ヒーローCTAと同デザイン） */
 .section-more-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 40px;
-  font-size: 0.85rem;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  padding: 16px 48px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  color: var(--color-main);
   font-weight: 500;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.88rem;
+  letter-spacing: 0.16em;
   border-radius: var(--radius);
   text-decoration: none;
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  transition: background-color var(--transition), border-color var(--transition),
+              box-shadow var(--transition), transform var(--transition);
 }
 
-.section-more-btn::after {
-  content: '→';
-  transition: transform 0.2s;
+.section-more-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
 }
 
 .section-more-btn:hover {
-  color: rgba(255, 255, 255, 0.9);
-  border-color: rgba(255, 255, 255, 0.55);
-  background: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
-.section-more-btn:hover::after {
-  transform: translateX(4px);
+.section-more-btn:hover::before {
+  animation: shimmerPass 0.65s ease forwards;
 }
 
 .section-footer {
