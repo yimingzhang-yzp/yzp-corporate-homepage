@@ -1080,7 +1080,7 @@ img {
 .results-section__num {
   font-weight: 700;
   font-size: 3.5rem;
-  color: var(--color-main);
+  color: var(--color-accent);
   line-height: 1;
   margin-bottom: 14px;
   letter-spacing: -0.02em;
