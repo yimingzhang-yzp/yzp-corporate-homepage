@@ -533,6 +533,18 @@ img {
 .about-section {
   padding: 120px 32px;
   background-color: #0a0a0f;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 8% 50%, rgba(0, 200, 150, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 60% at 92% 30%, rgba(0, 200, 150, 0.14) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .about-section .section-title {
@@ -823,6 +835,18 @@ img {
   padding: 120px 32px;
   background-color: #0a0a0f;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 8% 50%, rgba(0, 200, 150, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 60% at 92% 30%, rgba(0, 200, 150, 0.14) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .contact-section .section-title {
@@ -1006,6 +1030,18 @@ img {
 .results-section {
   padding: 120px 32px;
   background-color: #0a0a0f;
+  position: relative;
+  overflow: hidden;
+}
+
+.results-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 8% 50%, rgba(0, 200, 150, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 60% at 92% 30%, rgba(0, 200, 150, 0.14) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .results-section .section-title {
@@ -1080,6 +1116,18 @@ img {
 .cases-section {
   padding: 120px 32px;
   background-color: #0a0a0f;
+  position: relative;
+  overflow: hidden;
+}
+
+.cases-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 8% 50%, rgba(0, 200, 150, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 60% at 92% 30%, rgba(0, 200, 150, 0.14) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .cases-section .section-title {
@@ -1218,6 +1266,18 @@ img {
 .news-section {
   padding: 120px 32px;
   background-color: #0a0a0f;
+  position: relative;
+  overflow: hidden;
+}
+
+.news-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 8% 50%, rgba(0, 200, 150, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 60% at 92% 30%, rgba(0, 200, 150, 0.14) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .news-section .section-title {
