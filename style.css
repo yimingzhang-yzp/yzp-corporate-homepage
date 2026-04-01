@@ -877,6 +877,7 @@ img {
 
 .contact-section__field--full {
   grid-column: 1 / -1;
+  text-align: center;
 }
 
 .contact-section__field label,
@@ -985,6 +986,10 @@ img {
 }
 
 .contact-section__submit {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
   padding: 16px 48px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   background-color: transparent;
@@ -996,15 +1001,35 @@ img {
   border-radius: var(--radius);
   cursor: pointer;
   transition: background-color var(--transition), border-color var(--transition),
-              color var(--transition), box-shadow var(--transition), transform var(--transition);
+              box-shadow var(--transition), transform var(--transition);
+}
+
+.contact-section__submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
 }
 
 .contact-section__submit:hover {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-  color: #fff;
-  box-shadow: 0 8px 24px rgba(0, 200, 150, 0.35);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
+}
+
+.contact-section__submit:hover::before {
+  animation: shimmerPass 0.65s ease forwards;
 }
 
 .contact-section__submit:disabled {
