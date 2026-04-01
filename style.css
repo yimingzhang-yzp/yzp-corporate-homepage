@@ -593,8 +593,35 @@ img {
 
 .about-section__panel:hover {
   background-color: #252525;
+  border-color: rgba(0, 200, 150, 0.5);
   transform: translateY(-4px);
   box-shadow: var(--shadow-card-hover);
+}
+
+/* 会社概要パネル：背景画像 */
+.about-section__panel--bg-img {
+  background-image: url('image/2017-12東京タワー・夜景-scaled.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.about-section__panel--bg-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.about-section__panel--bg-img > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about-section__panel--bg-img:hover {
+  background-color: transparent;
 }
 
 .about-section__panel-icon {
