@@ -2615,7 +2615,7 @@ img {
 .company-section__label {
   font-size: 0.85rem;
   font-weight: 500;
-  color: #155C59;
+  color: var(--color-accent);
   letter-spacing: 0.1em;
   margin-bottom: 10px;
 }
