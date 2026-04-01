@@ -1429,11 +1429,9 @@ img {
 }
 
 .footer__logo {
-  height: 48px;
+  height: 68px;
   width: auto;
-  margin-bottom: 16px;
-  opacity: 0.85;
-  filter: brightness(0) invert(1);
+  display: block;
 }
 
 .footer__tagline {
