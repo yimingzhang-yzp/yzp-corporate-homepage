@@ -560,58 +560,12 @@ img {
   margin: 0 auto;
 }
 
-.about-section__content {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.about-section__text p {
-  font-size: 0.975rem;
-  color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 16px;
-  line-height: 1.95;
-}
-
-.about-section__text p:last-child {
-  margin-bottom: 0;
-}
-
-.about-section__profile {
-  width: 100%;
-  font-size: 0.93rem;
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.about-section__profile-row {
-  display: flex;
-  padding: 16px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.about-section__profile-row:last-child {
-  border-bottom: none;
-}
-
-.about-section__profile-row dt {
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-  width: 32%;
-  flex-shrink: 0;
-  letter-spacing: 0.06em;
-}
-
-.about-section__profile-values {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.about-section__profile-row dd {
-  color: rgba(255, 255, 255, 0.6);
+/* === ABOUT: パネルグリッド === */
+.about-section__panels {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 48px;
 }
 
 @media (min-width: 768px) {
@@ -619,61 +573,59 @@ img {
     padding: 140px 48px;
   }
 
-  .about-section__content {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 60px;
-  }
-
-  .about-section__text {
-    flex: 1;
-  }
-
-  .about-section__profile {
-    flex: 1;
+  .about-section__panels {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-/* === ABOUT: メンバーボタン === */
-.about-section__footer {
-  margin-top: 48px;
-  text-align: center;
-}
-
-.about-section__btn {
-  display: inline-block;
+.about-section__panel {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  background-color: #1a1a1a;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  text-decoration: none;
   position: relative;
-  overflow: hidden;
-  padding: 14px 48px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: var(--color-main);
-  font-weight: 500;
+  transition: background-color var(--transition), transform var(--transition),
+              box-shadow var(--transition);
+}
+
+.about-section__panel:hover {
+  background-color: #252525;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.about-section__panel-icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.about-section__panel-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 12px;
+}
+
+.about-section__panel-desc {
   font-size: 0.9rem;
-  letter-spacing: 0.12em;
-  border-radius: var(--radius);
-  transition: background-color var(--transition), border-color var(--transition),
-              transform var(--transition), box-shadow var(--transition);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.8;
+  flex: 1;
 }
 
-.about-section__btn::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 45%; height: 100%;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
-  transform: translateX(-120%) skewX(-20deg);
-  pointer-events: none;
-}
-
-.about-section__btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.8);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-.about-section__btn:hover::before {
-  animation: shimmerPass 0.65s ease forwards;
+.about-section__panel-arrow {
+  display: block;
+  text-align: right;
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  margin-top: 24px;
 }
 
 /* === MEMBERS PAGE === */
