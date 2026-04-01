@@ -608,6 +608,7 @@ img {
   background-size: cover;
   background-position: center;
   position: relative;
+  overflow: hidden;
 }
 
 .about-section__panel--bg-img::after {
@@ -615,7 +616,6 @@ img {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
-  border-radius: 8px;
   pointer-events: none;
 }
 
@@ -658,7 +658,6 @@ img {
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
   z-index: 1;
-  border-radius: 8px;
 }
 
 .about-section__panel--video > *:not(.about-section__panel-video):not(.about-section__panel-overlay) {
