@@ -925,16 +925,16 @@ img {
   position: relative;
   overflow: hidden;
   padding: 16px 56px;
-  border: none;
-  background-color: var(--color-accent);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
   color: var(--color-main);
   font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.1em;
+  font-weight: 500;
+  font-size: 0.88rem;
+  letter-spacing: 0.16em;
   border-radius: var(--radius);
   cursor: pointer;
-  transition: background-color var(--transition),
+  transition: background-color var(--transition), border-color var(--transition),
               box-shadow var(--transition), transform var(--transition);
 }
 
@@ -949,7 +949,7 @@ img {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.22) 50%,
     transparent 100%
   );
   transform: translateX(-120%) skewX(-20deg);
@@ -957,8 +957,9 @@ img {
 }
 
 .contact-section__submit:hover {
-  background-color: var(--color-accent-hover);
-  box-shadow: 0 8px 24px rgba(21, 92, 89, 0.35);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
 
@@ -1249,6 +1250,16 @@ img {
   flex-shrink: 0;
 }
 
+.news-section__item a {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
 .news-section__title {
   font-size: 0.95rem;
   font-weight: 500;
@@ -1376,14 +1387,17 @@ img {
 .cases-section__link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 9px 20px;
   font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.45);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
 
 .cases-section__link::after {
@@ -1392,11 +1406,49 @@ img {
 }
 
 .cases-section__link:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .cases-section__link:hover::after {
   transform: translateX(4px);
+}
+
+/* 事例・ニュース 共通「もっと見る」ボタン */
+.section-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 40px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.section-more-btn::after {
+  content: '→';
+  transition: transform 0.2s;
+}
+
+.section-more-btn:hover {
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.section-more-btn:hover::after {
+  transform: translateX(4px);
+}
+
+.section-footer {
+  margin-top: 56px;
+  text-align: center;
 }
 
 
@@ -2215,4 +2267,46 @@ img {
   .service-cta-section__title {
     font-size: 2rem;
   }
+}
+
+
+/* === NEWS ARTICLE === */
+.news-article p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 2;
+  margin-bottom: 24px;
+}
+
+.news-article h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 40px 0 16px;
+  padding-left: 16px;
+  border-left: 3px solid rgba(255, 255, 255, 0.25);
+}
+
+.news-article__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-left: 8px;
+}
+
+.news-article__list li {
+  font-size: 0.93rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  padding-left: 20px;
+  position: relative;
+}
+
+.news-article__list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.3);
 }
