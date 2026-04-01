@@ -1911,19 +1911,40 @@ img {
 
 .case-cta__btn {
   display: inline-block;
+  position: relative;
+  overflow: hidden;
   padding: 16px 56px;
-  background: var(--color-accent);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   color: #fff;
   font-weight: 700;
   font-size: 0.93rem;
   border-radius: 4px;
   text-decoration: none;
   letter-spacing: 0.06em;
-  transition: background 0.2s ease;
+  transition: background-color var(--transition), border-color var(--transition),
+              box-shadow var(--transition), transform var(--transition);
+}
+
+.case-cta__btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 45%; height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.22) 50%, transparent 100%);
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
 }
 
 .case-cta__btn:hover {
-  background: var(--color-accent-hover);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.case-cta__btn:hover::before {
+  animation: shimmerPass 0.65s ease forwards;
 }
 
 @media (min-width: 768px) {
