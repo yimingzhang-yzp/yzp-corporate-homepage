@@ -2310,3 +2310,77 @@ img {
   left: 0;
   color: rgba(255, 255, 255, 0.3);
 }
+
+
+/* === NEWS LIST PAGE — フィルタータブ === */
+.news-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.news-filter__btn {
+  padding: 8px 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.news-filter__btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.news-filter__btn.is-active {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.news-list-section {
+  padding: 40px 32px 120px;
+  background-color: #0a0a0f;
+}
+
+.news-list-section__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.news-list__item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.2s;
+}
+
+.news-list__item.is-hidden {
+  display: none;
+}
+
+.news-list__item a {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 22px 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+}
+
+.news-list__item a:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@media (min-width: 768px) {
+  .news-list-section {
+    padding: 40px 48px 140px;
+  }
+}
