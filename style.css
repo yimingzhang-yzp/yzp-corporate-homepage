@@ -2408,19 +2408,33 @@ img {
 /* --- Service CTA --- */
 .service-cta-section {
   padding: 100px 32px;
-  background-color: var(--color-accent);
+  background-color: #0a0a0f;
+  position: relative;
+  overflow: hidden;
   text-align: center;
+}
+
+.service-cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 8% 50%, rgba(0, 200, 150, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 60% at 92% 30%, rgba(0, 200, 150, 0.12) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .service-cta-section__inner {
   max-width: 700px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .service-cta-section__title {
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--color-main);
+  color: rgba(255, 255, 255, 0.92);
   letter-spacing: 0.06em;
   margin-bottom: 16px;
   line-height: 1.4;
@@ -2428,27 +2442,46 @@ img {
 
 .service-cta-section__text {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 48px;
   line-height: 1.9;
 }
 
 .service-cta-section__btn {
   display: inline-block;
+  position: relative;
+  overflow: hidden;
   padding: 18px 56px;
-  background-color: var(--color-main);
-  color: var(--color-accent);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.1em;
   border-radius: var(--radius);
-  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  transition: background-color var(--transition), border-color var(--transition),
+              box-shadow var(--transition), transform var(--transition);
+}
+
+.service-cta-section__btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 45%; height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.22) 50%, transparent 100%);
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
 }
 
 .service-cta-section__btn:hover {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.service-cta-section__btn:hover::before {
+  animation: shimmerPass 0.65s ease forwards;
 }
 
 @media (min-width: 768px) {
