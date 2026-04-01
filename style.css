@@ -834,14 +834,14 @@ img {
 }
 
 .contact-section__inner {
-  max-width: 580px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
 .contact-section__form {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
   text-align: left;
 }
 
@@ -851,61 +851,101 @@ img {
   gap: 7px;
 }
 
-.contact-section__field label {
+.contact-section__field--full {
+  grid-column: 1 / -1;
+}
+
+.contact-section__field label,
+.contact-section__checkbox-label {
   font-weight: 500;
   font-size: 0.88rem;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.75);
 }
 
+.contact-section__required {
+  color: #e05c5c;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
 .contact-section__field input,
-.contact-section__field textarea {
+.contact-section__field textarea,
+.contact-section__field select {
   width: 100%;
   padding: 14px 18px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius);
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 0.95rem;
-  color: var(--color-text);
-  background-color: var(--color-main);
+  color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.05);
   outline: none;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
+.contact-section__field input::placeholder,
+.contact-section__field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.contact-section__field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+  cursor: pointer;
+}
+
+.contact-section__field select option {
+  background-color: #1a1a24;
+  color: rgba(255, 255, 255, 0.85);
+}
+
 .contact-section__field input:focus,
-.contact-section__field textarea:focus {
-  border-color: var(--color-accent-hover);
-  box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.25);
+.contact-section__field textarea:focus,
+.contact-section__field select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.2);
 }
 
 .contact-section__field input.is-error,
-.contact-section__field textarea.is-error {
+.contact-section__field textarea.is-error,
+.contact-section__field select.is-error {
   border-color: #e05c5c;
   box-shadow: 0 0 0 3px rgba(224, 92, 92, 0.2);
 }
 
 .contact-section__field textarea {
-  min-height: 160px;
+  height: 150px;
   resize: vertical;
   line-height: 1.7;
 }
 
-.required {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 500;
-  background-color: rgba(224, 92, 92, 0.85);
-  color: var(--color-main);
-  padding: 2px 7px;
-  border-radius: 3px;
-  margin-left: 6px;
-  vertical-align: middle;
-  letter-spacing: 0.03em;
+/* チェックボックス */
+.contact-section__field--check {
+  padding: 4px 0;
+}
+
+.contact-section__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.contact-section__checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--color-accent);
+  cursor: pointer;
 }
 
 .form-error {
   font-size: 0.8rem;
-  color: #c0392b;
+  color: #e05c5c;
   margin-top: 2px;
 }
 
@@ -921,10 +961,7 @@ img {
 }
 
 .contact-section__submit {
-  align-self: center;
-  position: relative;
-  overflow: hidden;
-  padding: 16px 56px;
+  padding: 16px 48px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   background-color: transparent;
   color: var(--color-main);
@@ -935,36 +972,15 @@ img {
   border-radius: var(--radius);
   cursor: pointer;
   transition: background-color var(--transition), border-color var(--transition),
-              box-shadow var(--transition), transform var(--transition);
-}
-
-/* シマー光源 */
-.contact-section__submit::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 45%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.22) 50%,
-    transparent 100%
-  );
-  transform: translateX(-120%) skewX(-20deg);
-  pointer-events: none;
+              color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 .contact-section__submit:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 200, 150, 0.35);
   transform: translateY(-2px);
-}
-
-.contact-section__submit:hover::before {
-  animation: shimmerPass 0.65s ease forwards;
 }
 
 .contact-section__submit:disabled {
@@ -977,6 +993,12 @@ img {
 @media (min-width: 768px) {
   .contact-section {
     padding: 140px 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-section__form {
+    grid-template-columns: 1fr;
   }
 }
 

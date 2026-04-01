@@ -288,23 +288,63 @@
       <h2 class="section-title">お問い合わせ</h2>
       <p class="section-lead">ご相談・ご質問は、以下のフォームよりお気軽にお送りください。</p>
       <form class="contact-section__form" action="#" method="post" novalidate>
+
+        <!-- 1行目：企業名 / 部署名 -->
         <div class="contact-section__field">
-          <label for="name">お名前 <span class="required">必須</span></label>
-          <input type="text" id="name" name="name" placeholder="山田 太郎" required>
-        </div>
-        <div class="contact-section__field">
-          <label for="company">会社名</label>
+          <label for="company">企業名</label>
           <input type="text" id="company" name="company" placeholder="株式会社〇〇">
         </div>
         <div class="contact-section__field">
-          <label for="email">メールアドレス <span class="required">必須</span></label>
-          <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+          <label for="department">部署名</label>
+          <input type="text" id="department" name="department" placeholder="営業部">
+        </div>
+
+        <!-- 2行目：お名前＊ / メールアドレス＊ -->
+        <div class="contact-section__field">
+          <label for="name">お名前 <span class="contact-section__required">＊</span></label>
+          <input type="text" id="name" name="name" placeholder="山田 太郎" required>
         </div>
         <div class="contact-section__field">
-          <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
-          <textarea id="message" name="message" rows="6" placeholder="ご相談内容をご記入ください" required></textarea>
+          <label for="email">メールアドレス <span class="contact-section__required">＊</span></label>
+          <input type="email" id="email" name="email" placeholder="example@mail.com" required>
         </div>
-        <button type="submit" class="contact-section__submit">送信する</button>
+
+        <!-- 3行目：電話番号 / お問い合わせ項目＊ -->
+        <div class="contact-section__field">
+          <label for="tel">電話番号</label>
+          <input type="tel" id="tel" name="tel" placeholder="03-0000-0000">
+        </div>
+        <div class="contact-section__field">
+          <label for="inquiry">お問い合わせ項目 <span class="contact-section__required">＊</span></label>
+          <select id="inquiry" name="inquiry" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="ax">AXコンサルティングについて</option>
+            <option value="dx">DXコンサルティングについて</option>
+            <option value="pmo">AI共進型PMOについて</option>
+            <option value="ai">AIツール導入について</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+
+        <!-- 4行目：お問い合わせ内容＊（全幅） -->
+        <div class="contact-section__field contact-section__field--full">
+          <label for="message">お問い合わせ内容 <span class="contact-section__required">＊</span></label>
+          <textarea id="message" name="message" placeholder="ご相談内容をご記入ください" required></textarea>
+        </div>
+
+        <!-- 5行目：プライバシーポリシー同意（全幅） -->
+        <div class="contact-section__field contact-section__field--full contact-section__field--check">
+          <label class="contact-section__checkbox-label">
+            <input type="checkbox" name="privacy" required>
+            <span>プライバシーポリシーに同意します</span>
+          </label>
+        </div>
+
+        <!-- 6行目：送信ボタン（全幅・左寄せ） -->
+        <div class="contact-section__field--full">
+          <button type="submit" class="contact-section__submit">送信する →</button>
+        </div>
+
       </form>
     </div>
   </section>
