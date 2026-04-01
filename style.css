@@ -1442,28 +1442,15 @@ img {
 }
 
 .footer__col-label {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.1em;
   margin-bottom: 18px;
 }
 
 .footer__col-label--gap {
   margin-top: 32px;
-}
-
-.footer__col-label-en {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #155C59;
-  letter-spacing: 0.1em;
-}
-
-.footer__col-label-ja {
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.3);
-  letter-spacing: 0.04em;
 }
 
 .footer__links {
