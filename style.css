@@ -624,6 +624,38 @@ img {
   background-color: transparent;
 }
 
+/* 動画背景パネル */
+.about-section__panel--video {
+  background-color: #000;
+  overflow: hidden;
+}
+
+.about-section__panel--video:hover {
+  background-color: #000;
+}
+
+.about-section__panel-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.about-section__panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+  border-radius: 8px;
+}
+
+.about-section__panel--video > *:not(.about-section__panel-video):not(.about-section__panel-overlay) {
+  position: relative;
+  z-index: 2;
+}
+
 .about-section__panel-icon {
   display: block;
   width: 48px;
