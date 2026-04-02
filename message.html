@@ -117,12 +117,57 @@
     </div>
   </section>
 
-  <!-- === CTA === -->
-  <section class="case-cta">
-    <div class="case-cta__inner">
-      <p class="case-cta__lead">Contact</p>
-      <h2 class="case-cta__title">YZ PARTNERSと共に<br>変革を実行しませんか</h2>
-      <a href="index.html#contact" class="case-cta__btn">無料相談はこちら</a>
+  <!-- === CONTACT === -->
+  <section class="contact-section" id="contact">
+    <div class="contact-section__inner">
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-lead">ご相談・ご質問は、以下のフォームよりお気軽にお送りください。</p>
+      <form class="contact-section__form" action="#" method="post" novalidate>
+        <div class="contact-section__field">
+          <label for="company">企業名</label>
+          <input type="text" id="company" name="company" placeholder="株式会社〇〇">
+        </div>
+        <div class="contact-section__field">
+          <label for="department">部署名</label>
+          <input type="text" id="department" name="department" placeholder="営業部">
+        </div>
+        <div class="contact-section__field">
+          <label for="name">お名前 <span class="contact-section__required">＊</span></label>
+          <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+        </div>
+        <div class="contact-section__field">
+          <label for="email">メールアドレス <span class="contact-section__required">＊</span></label>
+          <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+        </div>
+        <div class="contact-section__field">
+          <label for="tel">電話番号</label>
+          <input type="tel" id="tel" name="tel" placeholder="03-0000-0000">
+        </div>
+        <div class="contact-section__field">
+          <label for="inquiry">お問い合わせ項目 <span class="contact-section__required">＊</span></label>
+          <select id="inquiry" name="inquiry" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="ax">AXコンサルティングについて</option>
+            <option value="dx">DXコンサルティングについて</option>
+            <option value="pmo">AI共進型PMOについて</option>
+            <option value="ai">AIツール導入について</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div class="contact-section__field contact-section__field--full">
+          <label for="message">お問い合わせ内容 <span class="contact-section__required">＊</span></label>
+          <textarea id="message" name="message" placeholder="ご相談内容をご記入ください" required></textarea>
+        </div>
+        <div class="contact-section__field contact-section__field--full contact-section__field--check">
+          <label class="contact-section__checkbox-label">
+            <input type="checkbox" name="privacy" required>
+            <span>プライバシーポリシーに同意します</span>
+          </label>
+        </div>
+        <div class="contact-section__field--full">
+          <button type="submit" class="contact-section__submit">送信する →</button>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -177,5 +222,26 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    const FORMSPREE_ID = 'xpqolqvp';
+    const contactForm = document.querySelector('.contact-section__form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function (e) {
+        e.stopImmediatePropagation(); e.preventDefault();
+        const submitBtn = contactForm.querySelector('.contact-section__submit');
+        const originalText = submitBtn.textContent;
+        const required = contactForm.querySelectorAll('[required]');
+        let valid = true;
+        required.forEach((el) => { if (el.type === 'checkbox' && !el.checked) valid = false; else if (el.type !== 'checkbox' && !el.value.trim()) valid = false; });
+        if (!valid) { alert('必須項目をすべてご入力ください。'); return; }
+        submitBtn.disabled = true; submitBtn.textContent = '送信中…';
+        try {
+          const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(contactForm) });
+          if (res.ok) { contactForm.innerHTML = '<p style="text-align:center;color:rgba(255,255,255,0.85);padding:40px 0;line-height:2">お問い合わせを受け付けました。<br>担当者よりご連絡いたします。</p>'; }
+          else { throw new Error(); }
+        } catch { alert('送信に失敗しました。しばらく経ってから再度お試しください。'); submitBtn.disabled = false; submitBtn.textContent = originalText; }
+      }, true);
+    }
+  </script>
 </body>
 </html>
