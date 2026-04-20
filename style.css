@@ -2727,32 +2727,6 @@ img {
   }
 }
 
-/* === NAVBAR: 採用情報ボタン === */
-.navbar__list li a.navbar__recruit-btn {
-  border: 1.5px solid #155C59;
-  border-radius: 4px;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.navbar__list li a.navbar__recruit-btn:hover {
-  background-color: #155C59;
-  color: #fff;
-  padding-left: 32px;
-}
-
-@media (min-width: 768px) {
-  .navbar__list li a.navbar__recruit-btn {
-    padding: 7px 16px;
-  }
-
-  .navbar__list li a.navbar__recruit-btn:hover {
-    padding-left: 16px;
-  }
-
-  .navbar__list li a.navbar__recruit-btn::after {
-    display: none;
-  }
-}
 
 /* === RECRUIT PAGE === */
 
